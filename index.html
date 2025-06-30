@@ -18,6 +18,20 @@
             <button id="pauseBtn" class="btn pause">一時停止</button>
             <button id="resetBtn" class="btn reset">リセット</button>
         </div>
+        <div class="settings">
+            <div class="setting-group">
+                <label for="workTime">作業時間 (分)</label>
+                <input type="number" id="workTime" min="1" max="60" value="25">
+            </div>
+            <div class="setting-group">
+                <label for="breakTime">休憩時間 (分)</label>
+                <input type="number" id="breakTime" min="1" max="30" value="5">
+            </div>
+            <div class="setting-group">
+                <label for="longBreakTime">長い休憩 (分)</label>
+                <input type="number" id="longBreakTime" min="1" max="60" value="15">
+            </div>
+        </div>
         <div class="session-info">
             <div class="session-count">セッション: <span id="sessionCount">0</span></div>
         </div>

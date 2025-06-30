@@ -112,6 +112,53 @@ h1 {
     background: #da190b;
 }
 
+.settings {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.setting-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.setting-group:last-child {
+    margin-bottom: 0;
+}
+
+.setting-group label {
+    font-size: 1rem;
+    opacity: 0.9;
+    flex: 1;
+    text-align: left;
+}
+
+.setting-group input {
+    width: 80px;
+    padding: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.setting-group input:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+.setting-group input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
 .session-info {
     margin-top: 2rem;
     padding-top: 2rem;
@@ -150,5 +197,23 @@ h1 {
     .btn {
         padding: 0.8rem 1.5rem;
         font-size: 0.9rem;
+    }
+    
+    .settings {
+        padding: 1rem;
+    }
+    
+    .setting-group {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: stretch;
+    }
+    
+    .setting-group label {
+        text-align: center;
+    }
+    
+    .setting-group input {
+        width: 100%;
     }
 }

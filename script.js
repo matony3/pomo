@@ -10,6 +10,7 @@ class PomodoroTimer {
         this.intervalId = null;
         
         this.initElements();
+        this.loadSettings();
         this.updateDisplay();
     }
     
@@ -20,10 +21,16 @@ class PomodoroTimer {
         this.startBtn = document.getElementById('startBtn');
         this.pauseBtn = document.getElementById('pauseBtn');
         this.resetBtn = document.getElementById('resetBtn');
+        this.workTimeInput = document.getElementById('workTime');
+        this.breakTimeInput = document.getElementById('breakTime');
+        this.longBreakTimeInput = document.getElementById('longBreakTime');
         
         this.startBtn.addEventListener('click', () => this.start());
         this.pauseBtn.addEventListener('click', () => this.pause());
         this.resetBtn.addEventListener('click', () => this.reset());
+        this.workTimeInput.addEventListener('change', () => this.updateSettings());
+        this.breakTimeInput.addEventListener('change', () => this.updateSettings());
+        this.longBreakTimeInput.addEventListener('change', () => this.updateSettings());
     }
     
     start() {
@@ -107,6 +114,23 @@ class PomodoroTimer {
                            '休憩時間です！';
             new Notification('ポモドーロタイマー', { body: message });
         }
+    }
+    
+    loadSettings() {
+        this.workTimeInput.value = this.workTime / 60;
+        this.breakTimeInput.value = this.breakTime / 60;
+        this.longBreakTimeInput.value = this.longBreakTime / 60;
+    }
+    
+    updateSettings() {
+        if (this.isRunning) return;
+        
+        this.workTime = parseInt(this.workTimeInput.value) * 60;
+        this.breakTime = parseInt(this.breakTimeInput.value) * 60;
+        this.longBreakTime = parseInt(this.longBreakTimeInput.value) * 60;
+        
+        this.currentTime = this.isWorkSession ? this.workTime : this.getBreakTime();
+        this.updateDisplay();
     }
 }
 
